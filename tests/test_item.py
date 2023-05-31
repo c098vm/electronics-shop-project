@@ -27,4 +27,11 @@ def test_name():
     assert item1.name == "Монитор"
 
 
+def test_repr():
+    item1 = item.Item("Смартфон", 10000, 20)
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
 
+
+def test_str():
+    item1 = item.Item("Смартфон", 10000, 20)
+    assert str(item1) == 'Смартфон'

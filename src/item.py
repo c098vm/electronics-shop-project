@@ -21,6 +21,20 @@ class Item:
         # self.all.append(self)
 
 
+    def __repr__(self) -> str:
+        """
+        Возвращает информацию об объекте класса в режиме отладки.
+        """
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+
+    def __str__(self) -> str:
+        """
+        Возвращает информацию об объекте класса для пользователей.
+        """
+        return self.__name
+
+
     def calculate_total_price(self) -> float:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
@@ -51,6 +65,8 @@ class Item:
         """
         if len(name) <= 10:
             self.__name = name
+        else:
+            print("Exception: Длина наименования товара превышает 10 символов.")
 
 
     @classmethod
