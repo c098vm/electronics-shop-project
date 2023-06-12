@@ -42,3 +42,12 @@ def test_add():
     phone1 = phone.Phone("iPhone 14", 120_000, 5, 2)
     assert item1 + phone1 == 25
     assert phone1 + phone1 == 10
+
+
+def test_instantiate_from_csv():
+    try:
+        item.Item.instantiate_from_csv()
+    except FileNotFoundError as error:
+        assert error
+    except Exception as error:
+        assert error

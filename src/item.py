@@ -1,5 +1,14 @@
 import csv
 
+
+class InstantiateCSVError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+    def __str__(self):
+        return self.message
+
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -38,7 +47,7 @@ class Item:
 
     def __add__(self, other) -> int:
         if not isinstance(other, Item):
-            raise ValueError('Складывать можно только объекты Employee и дочерние от них.')
+            raise ValueError('Складывать можно только объекты Item и дочерние от них.')
         return self.quantity + other.quantity
 
 
@@ -85,7 +94,9 @@ class Item:
                 for row in reader:
                     cls.all.append(cls(row['name'], float(row['price']), int(row['quantity'])))
         except FileNotFoundError:
-            print("Файл не найден")
+            raise FileNotFoundError("Отсутствует файл item.csv")
+        except Exception:
+            raise InstantiateCSVError('Файл item.csv поврежден')
 
 
     @staticmethod
