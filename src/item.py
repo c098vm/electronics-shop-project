@@ -3,7 +3,7 @@ import csv
 
 class InstantiateCSVError(Exception):
     """
-    Класс для ошибки для случая повреждения структуры файла item.csv.
+    Класс ошибки для случая повреждения структуры файла item.csv.
     """
     def __init__(self, message):
         """
