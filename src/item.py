@@ -2,7 +2,13 @@ import csv
 
 
 class InstantiateCSVError(Exception):
+    """
+    Класс для ошибки для случая повреждения структуры файла item.csv.
+    """
     def __init__(self, message):
+        """
+        message: Текст пользовательского сообщения об ошибке.
+        """
         self.message = message
 
     def __str__(self):
